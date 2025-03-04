@@ -1,10 +1,6 @@
 class Solution:
     def kidsWithCandies(self, candies, extraCandies):
-        l=len(candies)
         ans=[]
-        for i in range(l):
-            if candies[i]+extraCandies >= max(candies):
-                ans.append(True)
-            else:
-                ans.append(False)
+        for i in range(len(candies)):
+            ans.append(candies[i] + extraCandies >= max(candies))
         return ans
