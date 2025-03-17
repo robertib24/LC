@@ -1,4 +1,4 @@
-class Solution: 
+class Solution: # ideal O(n)
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = [1] * (len(nums))
 
