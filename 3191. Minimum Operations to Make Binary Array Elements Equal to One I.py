@@ -6,16 +6,16 @@ class Solution:
 
     def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
-        op = 0
+        ops = 0
 
         for i in range(n-2):
             if nums[i] == 1:
                 continue
             self.flip(nums, i)
-            op += 1
+            ops += 1
 
         if nums[n-1] == 0 or nums[n-2] == 0:
             return -1
         
-        return op
+        return ops
         
