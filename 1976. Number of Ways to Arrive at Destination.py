@@ -39,3 +39,41 @@ class Solution:
                     ways[neighbor] += ways[current_node]
                     
         return ways[n - 1] % MOD
+
+#O(n+m)
+
+class Solution:
+    def countPaths(self, n: int, roads: List[List[int]]) -> int:
+        MOD = 10 ** 9 + 7
+        
+        graph = [[] for _ in range(n)]
+        for u, v, time in roads:
+            graph[u].append((v, time))
+            graph[v].append((u, time))
+        
+        distance = [float('inf')] * n
+        ways = [0] * n
+        
+        distance[0] = 0
+        ways[0] = 1
+        
+        heap = [(0, 0)]
+        
+        while heap:
+            current_dist, node = heapq.heappop(heap)
+            
+            if current_dist > distance[node]:
+                continue
+            
+            for neighbor, time in graph[node]:
+                new_distance = current_dist + time
+                
+                if new_distance < distance[neighbor]:
+                    distance[neighbor] = new_distance
+                    ways[neighbor] = ways[node]
+                    heapq.heappush(heap, (new_distance, neighbor))
+                elif new_distance == distance[neighbor]:
+                    ways[neighbor] = (ways[neighbor] + ways[node]) % MOD
+        
+        return ways[n - 1]
+
