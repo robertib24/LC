@@ -1,3 +1,4 @@
+# O(n^2)
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
         INF = inf
