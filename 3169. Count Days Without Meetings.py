@@ -14,5 +14,21 @@ class Solution:
         for start,end in merged:
             unavailable_days += end - start + 1
 
-        return days - unavailable_days    
+        return days - unavailable_days
+
+# 2nd sol
+class Solution:
+    def countDays(self, days: int, meetings: List[List[int]]) -> int:
+
+        meetings.sort()
+        p_end = 0
+
+        for start, end in meetings:
+            start = max(start, p_end + 1)
+            length = end - start + 1
+            days -= max(length, 0)
+            p_end = max(end, p_end)
+            
+        return days 
+        
         
