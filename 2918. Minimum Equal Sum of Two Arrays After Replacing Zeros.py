@@ -6,4 +6,4 @@ class Solution:
             return self.minSum(nums2, nums1)
         if s1 == s2:
             return s1
-        return -1 if nums1.count(0) == 0 else s2
+        return -1 if nums1.count(0) == 0 else s2 
