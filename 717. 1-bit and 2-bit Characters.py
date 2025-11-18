@@ -1,9 +1,6 @@
-class Solution {
-    public boolean isOneBitCharacter(int[] bits) {
-        int i = 0;
-        while (i < bits.length - 1) {
-            i += bits[i] + 1;
-        }
-        return i == bits.length - 1;
-    }
-}
+class Solution:
+    def isOneBitCharacter(self, bits: List[int]) -> bool:
+        i = 0
+        while i < len(bits) - 1:
+            i += bits[i] + 1
+        return i == len(bits) - 1
